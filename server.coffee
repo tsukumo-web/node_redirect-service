@@ -28,7 +28,7 @@ module.exports = __module__ = ( ( options ) ->
             ns = settings.map.www
             plain = host[0] + '.' + host[1].split(':')[0]
         ns = settings.map[ns] or settings.map.www
-        direction = req.protocol + '://' + plain + ':' + settings.map[ns] + req.originalUrl
+        direction = req.protocol + '://' + plain + ':' + ns + req.originalUrl
         res.redirect direction
 
 )
