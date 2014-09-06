@@ -20,15 +20,15 @@ module.exports = __module__ = ( ( options ) ->
         console.log 'Starting registry mapping on port ' + settings.port
 
     app.use ( req, res ) ->
-        host = req.get('host')
-        console.log host
-        host = host.split('.')
-        ns = host[0]
-        plain = host[1] + '.' + host[2]
-        console.log ns
-        console.log req.originalUrl
+        host = req.get('host').split('.')
+        if host.length > 2
+            ns = host[0]
+            plain = host[1] + '.' + host[2].split(':')[0]
+        else
+            ns = settings.map.www
+            plain = host[0] + '.' + host[1].split(':')[0]
+        ns = settings.map[ns] or settings.map.www
         direction = req.protocol + '://' + plain + ':' + settings.map[ns] + req.originalUrl
-        console.log direction
         res.redirect direction
 
 )
