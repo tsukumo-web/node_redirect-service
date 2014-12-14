@@ -1,6 +1,10 @@
 {
+    "debug": true,
     "port": 80,
+    "host": "http://localhost",
     "map": {
-        "www": 8080
+        "www": {
+            "port": 8080
+        }
     }
 }

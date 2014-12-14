@@ -25,6 +25,7 @@
     "url": "https://github.com/tsukumo-web/node_redirect-service/issues"
   },
   "dependencies": {
-    "express": "~4.8.8"
+    "http-proxy": "^1.7.3",
+    "node.extend": "^1.1.3"
   }
 }
