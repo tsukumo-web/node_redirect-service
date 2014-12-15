@@ -28,7 +28,7 @@ module.exports = __module__ = ( options ) ->
         res.end message
 
     server = http.createServer ( req, res ) ->
-        namespace = req.headers.host.split('.')[0] or 'www'
+        namespace = req.headers.host?.split('.')[0] or 'www'
         host = settings.map[namespace]?.host or settings.host
         port = settings.map[namespace]?.port or 8080
         resolved = "#{host}:#{port}"
